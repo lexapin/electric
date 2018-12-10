@@ -15,9 +15,10 @@
     {% endifinstalled %}
 
     {% compress css %}
-        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
         <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-        {# <link rel="stylesheet" href="{% static "css/bootstrap-responsive.css" %}"> #}
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/font.css" %}">
+        <link rel="stylesheet" href="{% static "css/blog.css" %}">
         {% if LANGUAGE_BIDI %}
         <link rel="stylesheet" href="{% static "css/rtl.css" %}">
         {% endif %}
@@ -31,43 +32,52 @@
     {% endcompress %}
 
     {% compress js %}
-    <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
-    <script src="{% static "js/bootstrap.js" %}"></script>
-    <script src="{% static "js/bootstrap-extras.js" %}"></script>
+    <script src="{% static "js/"|add:settings.JQUERY_FILENAME %}"></script>
+    <script src="{% static "js/popper-1.14.3.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <!--<script src="{% static "js/bootstrap-extras.js" %}"></script>-->
     {% block extra_js %}{% endblock %}
     {% endcompress %}
     <!--[if lt IE 9]>
     <script src="{% static "js/html5shiv.js" %}"></script>
     <![endif]-->
-
     {% block extra_head %}{% endblock %}
 </head>
 
-<body id="{% block body_id %}body{% endblock %}">
+<body>
 {# This allows for a sticky footer while having a fixed navbar #}
 <div id="wrap">
-
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-            {# {% if settings.SITE_TAGLINE %}<p class="navbar-text">{{ settings.SITE_TAGLINE }}</p>{% endif %} #}
-        </div>
-        <div class="navbar-collapse collapse">
-            {% search_form "all" %}
-            {% page_menu "pages/menus/dropdown.html" %}
-        </div>    
-    </div>
-</nav>
-
 <div class="container">
-
-{% nevercache %}
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <img src="{% static "imgs/lumine4.png" %}" style="width: 120px; margin-bottom: 5px;">
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="#">Кларум</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="text-muted" href="#">
+                    <span>
+                    <img src="{% static "imgs/shopping-cart.svg" %}" class="svg" style="width: 20px; height: 20px;" alt="icon name">
+                    <p>5</p>
+                    </span>
+                </a>
+                <a class="text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+                    10
+                </a>
+                <a class="text-muted" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            </div>
+        </div>
+    </header>
+    <div class="nav-scroller py-1 mb-2">
+            {% page_menu "pages/menus/dropdown.html" %}
+    </div>
+    {% nevercache %}
 {% for message in messages %}
 <div class="alert alert-{{ message.tags }}" data-alert="alert">
     <a class="close" href="#" onclick="$(this).parent().fadeOut('fast'); return false;">×</a>{{ message }}
@@ -83,9 +93,7 @@
 {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
 {% endspaceless %}
 </ol>
-
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col-md-2">
@@ -125,23 +133,154 @@
 </div>
 </div><!-- /wrap -->
 
+
 <footer>
-    <div class="container">
-    {# {% page_menu "pages/menus/footer.html" %} #}
-    <p class="text-muted credit">
-        {% trans "Powered by" %}
-        <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
-        <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
-        {% trans "and" %}
-        <a href="http://www.djangoproject.com">Django</a>
-        <span class="separator">|</span>
-        {% trans "Theme by" %} <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>
-        {% ifinstalled mezzanine.mobile %}
-        <span class="separator">|</span>
-        <a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
-        {% endifinstalled %}
-    </p>
+        <!-- Grid row-->
+        <div class="blog-footer py-4 d-flex align-items-center" style="padding-left: 15px; padding-right: 15px;">
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                <!-- Facebook -->
+                <a class="fb-ic">
+                    <i class="fa fa-facebook white-text mr-4"> </i>
+                </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fa fa-twitter white-text mr-4"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+              <i class="fa fa-google-plus white-text mr-4"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fa fa-linkedin white-text mr-4"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+              <i class="fa fa-instagram white-text"> </i>
+            </a>
+
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row-->
+
+    <!-- Footer Links -->
+    <div class="text-center text-md-left mt-5">
+
+      <!-- Grid row -->
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold">Company name</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Products</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a href="#!" class="p-2 text-muted">MDBootstrap</a>
+          </p>
+          <p>
+            <a href="#!" class="p-2 text-muted">MDWordPress</a>
+          </p>
+          <p>
+            <a href="#!" class="p-2 text-muted">BrandFlow</a>
+          </p>
+          <p>
+            <a href="#!" class="p-2 text-muted">Bootstrap Angular</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a href="#!" class="p-2 text-muted">Your Account</a>
+          </p>
+          <p>
+            <a href="#!" class="p-2 text-muted">Become an Affiliate</a>
+          </p>
+          <p>
+            <a href="#!" class="p-2 text-muted">Shipping Rates</a>
+          </p>
+          <p>
+            <a href="#!" class="p-2 text-muted">Help</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Contact</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+          <p>
+            <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+          <p>
+            <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
     </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+    <!--<div class="container">-->
+    <!--{% page_menu "pages/menus/footer.html" %}-->
+    <!--<p class="text-muted credit">-->
+        <!--{% trans "Powered by" %}-->
+        <!--<a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},-->
+        <!--<a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}-->
+        <!--{% trans "and" %}-->
+        <!--<a href="http://www.djangoproject.com">Django</a>-->
+        <!--<span class="separator">|</span>-->
+        <!--{% trans "Theme by" %} <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>-->
+        <!--{% ifinstalled mezzanine.mobile %}-->
+        <!--<span class="separator">|</span>-->
+        <!--<a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>-->
+        <!--{% endifinstalled %}-->
+    <!--</p>-->
+    <!--</div>-->
 </footer>
 
 {% include "includes/footer_scripts.html" %}

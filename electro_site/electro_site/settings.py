@@ -80,6 +80,8 @@ from django.utils.translation import ugettext_lazy as _
 #
 # BLOG_USE_FEATURED_IMAGE = True
 
+JQUERY_FILENAME = 'jquery-3.2.1.min.js'
+
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
 USE_MODELTRANSLATION = True
