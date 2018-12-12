@@ -57,19 +57,9 @@
                 <a class="blog-header-logo text-dark" href="#">Кларум</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="text-muted" href="#">
-                    <span>
-                    <img src="{% static "imgs/shopping-cart.svg" %}" class="svg" style="width: 20px; height: 20px;" alt="icon name">
-                    <p>5</p>
-                    </span>
-                </a>
-                <a class="text-muted" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
-                    10
-                </a>
-                <a class="text-muted" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
-                </a>
+                {% nevercache %}
+                {% include "includes/user_panel.html" %}
+                {% endnevercache %}
                 <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
             </div>
         </div>
@@ -96,7 +86,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             {% block left_panel %}
             <div class="panel panel-default tree">
                 <div class="panel-body">
@@ -108,26 +98,6 @@
 
         <div class="col-md-7">
             {% block main %}{% endblock %}
-        </div>
-
-        <div class="col-md-3">
-            {% nevercache %}
-            {% include "includes/user_panel.html" %}
-            {% endnevercache %}
-
-            
-            {% block right_panel %}
-                {% ifinstalled mezzanine.twitter %}
-                {% if mezzanine.twitter.tweet %}
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        {% include "twitter/tweets.html" %}
-                    </div>
-                </div>
-                {% endif %}
-                {% endifinstalled %}
-            {% endblock %}
-            
         </div>
     </div>
 </div>
