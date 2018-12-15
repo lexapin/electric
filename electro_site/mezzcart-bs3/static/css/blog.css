@@ -127,3 +127,34 @@ h1, h2, h3, h4, h5, h6 {
 a.icon {
     margin-right: 10px;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: #6c757d;
+}
+
+a {
+    color: #6c757d;
+}
+
+a:hover {
+    color: #6c757d;
+    text-decoration: underline;
+}
+
+.mb-6 {
+    margin-bottom: 1rem!important;
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+    padding: 0rem;
+    font-size: .75rem;
+}
+
+#catalog_menu {
+    margin-top: 3px;
+}
+
+.card {
+    margin-top: 10px;
+}

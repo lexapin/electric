@@ -1,11 +1,13 @@
 {% load i18n shop_tags mezzanine_tags static %}
-<a class="text-muted icon" href="{% url "shop_cart" %}">
-    <div class="d-inline"><img src="{% static "imgs/shopping-cart.svg" %}" class="svg" style="width: 20px; height: 20px;" alt="icon name"></div>
-    <div class="d-inline">{{ request.cart.total_price|currency }}</div>
-</a>
+
 <a class="text-muted icon" href="{% url "shop_wishlist" %}">
     <div class="d-inline"><img src="{% static "imgs/heart.svg" %}" class="svg" style="width: 20px; height: 20px;" alt="icon name"></div>
     <div class="d-inline">{{ request.wishlist|length }}</div>
+</a>
+
+<a class="text-muted icon" href="{% url "shop_cart" %}">
+    <div class="d-inline"><img src="{% static "imgs/shopping-cart.svg" %}" class="svg" style="width: 20px; height: 20px;" alt="icon name"></div>
+    <div class="d-inline">{{ request.cart.total_price|currency }}</div>
 </a>
 
 <!--<div class="panel panel-default">-->
