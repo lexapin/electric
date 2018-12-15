@@ -1,0 +1,93 @@
+{% load i18n pages_tags static %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+
+    {% if branch_level == 0 %}
+    {% for page in page_branch %}
+        {% if page.html_id == 'market' and page.in_menu and page.has_children_in_menu %}
+            {% page_menu page %}
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    {% if branch_level == 1 %}
+        <div id="catalog-collapse-menu">
+        {% for page in page_branch %}
+            {% if page.in_menu %}
+                <div class="card catalog-tree">
+                    <div class="card-header card-header-tree" id="heading-{{page.html_id}}" data-toggle="collapse" data-target="#collapse-{{page.html_id}}" aria-expanded="false" aria-controls="collapse-{{page.html_id}}">
+                        <a href="{{ page.get_absolute_url }}">{{ page.title }} </a>
+                    </div>
+                    <ul id="collapse-{{page.html_id}}" class="list-group list-group-flush collapse">
+                        {% if page.has_children_in_menu %}{% page_menu page %}{% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if branch_level == 2 %}
+        {% for page in page_branch %}
+            {% if page.in_menu %}
+                <li class="list-group-item">
+                    <a href="{{ page.get_absolute_url }}">{{ page.title }} </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+{% endspaceless %}
+
+{% if branch_level == 1 %}
+<div id="accordion">
+    <div class="card catalog-tree">
+        <div class="card-header card-header-tree" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Collapsible Group Item #1
+        </div>
+        <ul id="collapseOne" class="list-group list-group-flush collapse">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <div class="card catalog-tree">
+        <div class="card-header card-header-tree" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Collapsible Group Item #2
+        </div>
+        <ul id="collapseTwo" class="list-group list-group-flush collapse">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <div class="card catalog-tree">
+        <div class="card-header card-header-tree" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Collapsible Group Item #3
+        </div>
+        <ul id="collapseThree" class="list-group list-group-flush collapse">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card card-manual">
+    <img class="card-img-top" src="{% static "imgs/streetlights.jpg" %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+<div class="card card-manual">
+    <img class="card-img-top" src="{% static "imgs/industrial-lighting.jpg" %}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+{% endif %}

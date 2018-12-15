@@ -155,6 +155,16 @@ a:hover {
     margin-top: 3px;
 }
 
-.card {
+.card-manual {
     margin-top: 10px;
+}
+
+/*catalog-tree style*/
+.catalog-tree {
+    margin-top: -2px;
+    border-radius: 0rem;
+}
+
+.card-header-tree {
+    cursor: pointer;
 }

@@ -35,7 +35,7 @@
     <script src="{% static "js/"|add:settings.JQUERY_FILENAME %}"></script>
     <script src="{% static "js/popper-1.14.3.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <!--<script src="{% static "js/bootstrap-extras.js" %}"></script>-->
+    <script src="{% static "js/hovermenu.js" %}"></script>
     {% block extra_js %}{% endblock %}
     {% endcompress %}
     <!--[if lt IE 9]>
@@ -86,21 +86,8 @@
             <div id="catalog_menu">
                 {% page_menu "pages/menus/tree.html" %}
             </div>
-            <div class="card">
-                <img class="card-img-top" src="{% static "imgs/streetlights.jpg" %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{% static "imgs/industrial-lighting.jpg" %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div id="catalog_tree">
+                {% page_menu "pages/menus/catalog-tree.html" %}
             </div>
             {% for category in child_categories %}
             <div class="col-sm-6 col-md-3">
