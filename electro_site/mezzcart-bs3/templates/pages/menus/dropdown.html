@@ -4,7 +4,6 @@
 <nav class="nav d-flex justify-content-between">
 {% if branch_level == 0 %}
     {% for page in page_branch %}
-    {% if page.html_id != 'market' %}
     {% if not has_home and page.is_primary and forloop.first %}
         <a href="{% url "home" %}" class="p-2 text-muted">{% trans "Home" %}</a>
     {% endif %}
@@ -12,7 +11,6 @@
         <a href="{{ page.get_absolute_url }}" class="p-2 text-muted">
             {{ page.title }}
         </a>
-    {% endif %}
     {% endif %}
     {% endfor %}
 {% endif %}

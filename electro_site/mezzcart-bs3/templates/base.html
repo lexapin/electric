@@ -60,17 +60,11 @@
                 {% nevercache %}
                 {% include "includes/user_panel.html" %}
                 {% endnevercache %}
-                <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+                <!--<a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>-->
+                <!--{% block search_form %}{% search_form "all" %}{% endblock %}-->
             </div>
         </div>
     </header>
-    <!--<div class="jumbotron p-3 p-md-5 text-white rounded bg-black" style="background-image:url('{% static "imgs/streetlights.jpg" %}');">-->
-        <!--<div class="col-md-8 px-0">-->
-            <!--<h1 class="display-4 font-italic">Нереальный заголовок с ссылкой на товар или запись в блоге</h1>-->
-            <!--<p class="lead my-3">Здесь должен располагаться дескрипшн к заголовку или нерельно-крутое описание, от которого все шарахнуться и перейдут по ссылке</p>-->
-            <!--<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Читать далее...</a></p>-->
-        <!--</div>-->
-    <!--</div>-->
     {% nevercache %}
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }}" data-alert="alert">
@@ -83,19 +77,9 @@
     <div class="row">
         <div class="col-md-3">
             {% block left_panel %}
-            <div id="catalog_menu">
-                {% page_menu "pages/menus/tree.html" %}
-            </div>
-            <div id="catalog_tree">
+            <div id="catalog_tree" style="margin-top: 10px; margin-bottom: 10px;">
                 {% page_menu "pages/menus/catalog-tree.html" %}
             </div>
-            {% for category in child_categories %}
-            <div class="col-sm-6 col-md-3">
-                <a href="{{ category.get_absolute_url }}">
-                    {{ category.title }}
-                </a>
-            </div>
-            {% endfor %}
             {% endblock %}
         </div>
 

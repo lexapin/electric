@@ -10,7 +10,7 @@
 {% endeditable %}
 
 {% if child_categories %}
-<div class="row">
+<div class="row justify-content-center">
 {% if settings.SHOP_CATEGORY_USE_FEATURED_IMAGE %}
     {% for category in child_categories %}
     <div class="col-sm-6 col-md-3 categories">
@@ -28,14 +28,16 @@
     {% endfor %}
 {% else %}
     {% for category in child_categories %}
-    <div class="col-sm-6 col-md-3">
-        <a href="{{ category.get_absolute_url }}">
-        {{ category.title }}
-        </a>
-    </div>
+        <div class="card col-sm-6 col-md-3" style="margin: 10px;">
+            <div class="card-body">
+                <a href="{{ category.get_absolute_url }}">
+                    <h12>{{ category.title }}</h12>
+                </a>
+            </div>
+        </div>
     {% endfor %}
 {% endif %}
-</ul>
+</div>
 {% endif %}
 
 {% if products.paginator.count != 0 %}
@@ -54,15 +56,16 @@
     </select>
 </form>
 
-<div class="row thumbnails">
+<div class="row justify-content-center">
     {% for product in products.object_list %}
-    <div class="col-sm-6 col-md-3 categories">
-        <a href="{{ product.get_absolute_url }}" class="thumbnail catlink">
-            {% if product.image %}
-            <img src="{{ MEDIA_URL }}{% thumbnail product.image 100 100 %}">
-            {% else %}
-            <div class="placeholder"></div>
-            {% endif %}
+    <div class="card col-md-3" style="margin: 10px;">
+        {% if product.image %}
+        <img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="Card image cap">
+        {% else %}
+        <div class="placeholder"></div>
+        {% endif %}
+        <div class="card-body">
+            <a href="{{ product.get_absolute_url }}" class="thumbnail catlink">
             <div class="caption">
             <h6>{{ product }}</h6>
             {% if product.has_price %}
@@ -76,6 +79,7 @@
             {% endif %}
             </div>
         </a>
+        </div>
     </div>
     {% endfor %}
 </div>

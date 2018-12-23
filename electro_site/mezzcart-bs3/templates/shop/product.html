@@ -1,4 +1,4 @@
-{% extends "shop/base.html" %}
+{% extends "pages/page.html" %}
 {% load mezzanine_tags shop_tags rating_tags i18n %}
 
 {% block meta_title %}{{ product.meta_title }}{% endblock %}
@@ -24,7 +24,7 @@
 
 {% block breadcrumb_menu %}
 {{ block.super }}
-<li>{{ product.title }}</li>
+<li class="breadcrumb-item active">{{ product.title }}</li>
 {% endblock %}
 
 {% block title %}
@@ -82,7 +82,7 @@
 		    {% trans "The selected options are currently unavailable." %}
 		    {% endif %}
 		{% endif %}
-	</li>
+    </li>
 	{% endfor %}
 </ul>
 <form method="post" id="add-cart" class="form-horizontal form-shop">
@@ -127,3 +127,4 @@
 {% endif %}
 
 {% endblock %}
+привет
