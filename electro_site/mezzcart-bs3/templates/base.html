@@ -35,6 +35,7 @@
     <script src="{% static "js/"|add:settings.JQUERY_FILENAME %}"></script>
     <script src="{% static "js/popper-1.14.3.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/current_year.js" %}"></script>
     <script src="{% static "js/hovermenu.js" %}"></script>
     {% block extra_js %}{% endblock %}
     {% endcompress %}
@@ -116,27 +117,22 @@
 
             <!-- Grid column -->
             <div class="col-md-6 col-lg-7 text-center text-md-right">
-
                 <!-- Facebook -->
-                <a class="fb-ic">
-                    <i class="fa fa-facebook white-text mr-4"> </i>
+                <a class="text-muted icon social" href="#">
+                    <img src="{% static "imgs/facebook.svg" %}" class="svg" alt="facebook">
                 </a>
-            <!-- Twitter -->
-            <a class="tw-ic">
-              <i class="fa fa-twitter white-text mr-4"> </i>
-            </a>
-            <!-- Google +-->
-            <a class="gplus-ic">
-              <i class="fa fa-google-plus white-text mr-4"> </i>
-            </a>
-            <!--Linkedin -->
-            <a class="li-ic">
-              <i class="fa fa-linkedin white-text mr-4"> </i>
-            </a>
-            <!--Instagram-->
-            <a class="ins-ic">
-              <i class="fa fa-instagram white-text"> </i>
-            </a>
+                <!-- Twitter -->
+                <a class="text-muted icon social" href="#">
+                    <img src="{% static "imgs/twitter.svg" %}" class="svg" alt="twitter">
+                </a>
+                <!--Instagram-->
+                <a class="text-muted icon social" href="#">
+                   <img src="{% static "imgs/instagram.svg" %}" class="svg" alt="instagram">
+                </a>
+                <!--YouTube -->
+                <a class="text-muted icon social" href="#">
+                    <img src="{% static "imgs/youtube.svg" %}" class="svg" alt="youtube">
+                </a>
 
           </div>
           <!-- Grid column -->
@@ -155,7 +151,10 @@
           <!-- Content -->
           <h6 class="text-uppercase font-weight-bold">Кларум-Люминэ</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>Пафосное представление компании, которое должен написать Яковлев.</p>
+          <p>Мы - молодая и энергичная компания, которая находится в самом сердце Поволжья.</p>
+          <p>Мы являемся официальными дистрибьюторами торговой марки Feron и предлагаем широкий ассортимент светотехники для домашнего и коммерческого использования, для внутреннего и для наружного освещения.</p>
+          <p>Наш каталог содержит более 4000 наименований светотехнической продукции.</p>
+          <p>Вся продукция Feron™ проходит строгий контроль качества на всех этапах производства, что позволяет гарантировать высокое качество предлагаемых изделий.</p>
 
         </div>
         <!-- Grid column -->
@@ -164,7 +163,7 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Products</h6>
+          <h6 class="text-uppercase font-weight-bold">Продукция</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <p>
             <a href="#!" class="p-2 text-muted">MDBootstrap</a>
@@ -186,7 +185,7 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+          <h6 class="text-uppercase font-weight-bold">Разделы сайта</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <p>
             <a href="#!" class="p-2 text-muted">Your Account</a>
@@ -208,7 +207,7 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
           <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Contact</h6>
+          <h6 class="text-uppercase font-weight-bold">Контактная информация</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <p>
             <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
@@ -229,8 +228,12 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+    <div class="footer-copyright text-center py-3">
+        <a class="text-muted icon" href="/" %}">
+        <div class="d-inline">©</div>
+        <div class="d-inline" id="current_year"></div>
+        <div class="d-inline">КЛАРУМ-ЛЮМИНЕ</div>
+        </a>
     </div>
     <!-- Copyright -->
 

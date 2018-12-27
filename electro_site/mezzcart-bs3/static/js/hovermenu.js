@@ -8,6 +8,4 @@ $(document).ready(function() {
         .mouseleave(function () {
             $(this).collapse('hide');
         });
-    console.log('hello world 2');
 });
-console.log('hello world 1');
