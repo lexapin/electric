@@ -1,0 +1,15 @@
+{% load i18n pages_tags static %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+
+    {% if branch_level == 0 %}
+    {% for page in page_branch %}
+        <p>
+             <a href="{{ page.get_absolute_url }}"><h8>{{ page.title }}</h8></a>
+        </p>
+    {% endfor %}
+    {% endif %}
+
+{% endif %}
+{% endspaceless %}

@@ -27,15 +27,15 @@
     </div>
     {% endfor %}
 {% else %}
-    {% for category in child_categories %}
-        <div class="card col-sm-6 col-md-3" style="margin: 10px;">
-            <div class="card-body">
-                <a href="{{ category.get_absolute_url }}">
-                    <h12>{{ category.title }}</h12>
-                </a>
-            </div>
-        </div>
-    {% endfor %}
+        <ul class="list-group list-group-flush border-bottom" style="width: 95%;">
+            {% for category in child_categories %}
+                <li class="list-group-item">
+                    <a href="{{ category.get_absolute_url }}">
+                        <h12>{{ category.title }}</h12>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
 {% endif %}
 </div>
 {% endif %}

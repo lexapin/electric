@@ -1,0 +1,25 @@
+{% load i18n pages_tags static %}
+
+{% spaceless %}
+{% if page_branch_in_menu %}
+
+    {% if branch_level == 0 %}
+    {% for page in page_branch %}
+        {% if page.html_id == 'market' and page.in_menu and page.has_children_in_menu %}
+            {% page_menu page %}
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    {% if branch_level == 1 %}
+        {% for page in page_branch %}
+            {% if page.in_menu %}
+                <p>
+                    <a href="{{ page.get_absolute_url }}"><h8>{{ page.title }}</h8></a>
+                </p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% endif %}
+{% endspaceless %}
