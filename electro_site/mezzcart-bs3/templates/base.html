@@ -87,7 +87,7 @@
         </div>
 
         <div class="col-md-9">
-            <div class="nav-scroller py-1 mb-2">
+            <div class="py-1 mb-2">
                 {% page_menu "pages/menus/dropdown.html" %}
             </div>
             <h3 class="pb-3 mb-6 font-italic border-bottom">{% block title %}{% endblock %}</h3>
@@ -160,6 +160,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
+          {% comment "Не нужен пока в футере каталог магазина, он и так везде есть" %}
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <!-- Links -->
@@ -168,6 +169,7 @@
           {% page_menu "pages/menus/footer_catalog.html" %}
 
         </div>
+          {% endcomment %}
         <!-- Grid column -->
 
         <!-- Grid column -->

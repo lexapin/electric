@@ -1,19 +1,37 @@
 {% load i18n pages_tags %}
 {% spaceless %}
 {% if page_branch_in_menu %}
-<nav class="nav d-flex justify-content-between">
 {% if branch_level == 0 %}
+<div class="nav d-flex justify-content-between">
     {% for page in page_branch %}
     {% if not has_home and page.is_primary and forloop.first %}
         <a href="{% url "home" %}" class="p-2 text-muted">{% trans "Home" %}</a>
     {% endif %}
     {% if page.in_menu %}
+        {% if page.has_children_in_menu %}
+        <div class="dropdown-menubar p-2 text-muted">
+            <a href="{{ page.get_absolute_url }}" class="dropbtn">
+                {{ page.title }}
+            </a>
+            {% page_menu page %}
+        </div>
+        {% else %}
         <a href="{{ page.get_absolute_url }}" class="p-2 text-muted">
             {{ page.title }}
         </a>
+        {% endif %}
     {% endif %}
     {% endfor %}
+</div>
 {% endif %}
-</nav>
+{% if branch_level == 1 %}
+<div class="dropdown-menucontent">
+    {% for page in page_branch %}
+        {% if page.in_menu %}
+        <a class="dropdown-item" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
 {% endif %}
 {% endspaceless %}
