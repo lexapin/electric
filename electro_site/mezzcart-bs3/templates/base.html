@@ -52,14 +52,14 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <img src="{% static "imgs/lumine4.png" %}" style="width: 120px; margin-bottom: 5px;">
+                <img src="{% static "imgs/AUTODIAG.png" %}" style="width: 50px; margin-bottom: 5px;">
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">Кларум</a>
+                <a class="blog-header-logo text-dark" href="#">АДС-тех</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 {% nevercache %}
-                {% include "includes/user_panel.html" %}
+                {# include "includes/user_panel.html" #}
                 {% endnevercache %}
                 <!--<a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>-->
             </div>
@@ -111,27 +111,19 @@
 
             <!-- Grid column -->
             <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                <h6 class="mb-0">Свяжитесь с нами в социальных сетях!</h6>
+                <h6 class="mb-0">Мы в социальных сетях!</h6>
             </div>
             <!-- Grid column -->
 
             <!-- Grid column -->
             <div class="col-md-6 col-lg-7 text-center text-md-right">
                 <!-- Facebook -->
-                <a class="text-muted icon social" href="#">
+                <a class="text-muted icon social" href="https://www.facebook.com/selfdiauto">
                     <img src="{% static "imgs/facebook.svg" %}" class="svg" alt="facebook">
                 </a>
-                <!-- Twitter -->
-                <a class="text-muted icon social" href="#">
-                    <img src="{% static "imgs/twitter.svg" %}" class="svg" alt="twitter">
-                </a>
-                <!--Instagram-->
-                <a class="text-muted icon social" href="#">
-                   <img src="{% static "imgs/instagram.svg" %}" class="svg" alt="instagram">
-                </a>
-                <!--YouTube -->
-                <a class="text-muted icon social" href="#">
-                    <img src="{% static "imgs/youtube.svg" %}" class="svg" alt="youtube">
+                <!--VK -->
+                <a class="text-muted icon social" href="https://vk.com/auto_electric_21">
+                    <img src="{% static "imgs/vk-logo.png" %}" class="svg" alt="vk">
                 </a>
 
           </div>
@@ -145,21 +137,20 @@
       <!-- Grid row -->
       <div class="row mt-3">
 
-        <!-- Grid column -->
+        <!-- Grid column ABOUT AS-->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
           <!-- Content -->
-          <h6 class="text-uppercase font-weight-bold">Кларум-Люминэ</h6>
+          <h6 class="text-uppercase font-weight-bold">АДС-тех</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>АДС - Автомобильные Диагностические Системы</p>
           <p>Мы - молодая и энергичная компания, которая находится в самом сердце Поволжья.</p>
-          <p>Мы являемся официальными дистрибьюторами торговой марки Feron и предлагаем широкий ассортимент светотехники для домашнего и коммерческого использования, для внутреннего и для наружного освещения.</p>
-          <p>Наш каталог содержит более 4000 наименований светотехнической продукции.</p>
-          <p>Вся продукция Feron™ проходит строгий контроль качества на всех этапах производства, что позволяет гарантировать высокое качество предлагаемых изделий.</p>
+          <p>Наша цель - разработка доступных систем диагностики автомобиля и оповещения об опасностях</p>
 
         </div>
         <!-- Grid column -->
 
-        <!-- Grid column -->
+        <!-- Grid column SHOP CATALOG-->
           {% comment "Не нужен пока в футере каталог магазина, он и так везде есть" %}
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
@@ -172,7 +163,7 @@
           {% endcomment %}
         <!-- Grid column -->
 
-        <!-- Grid column -->
+        <!-- Grid column SITE MENU-->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <!-- Links -->
@@ -181,22 +172,22 @@
           {% page_menu "pages/menus/footer_menu.html" %}
 
         </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
+        <!-- Grid column CONTACTS-->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
           <!-- Links -->
           <h6 class="text-uppercase font-weight-bold">Контактная информация</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <p>
-            <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            <i class="fa fa-home mr-3"></i> Россия, Чебоксары
+          </p>
           <p>
-            <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+            <i class="fa fa-envelope mr-3"></i>79625995110@ya.ru</p>
           <p>
-            <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+            <i class="fa fa-phone mr-3"></i> + 7 962 599 51 10</p>
           <p>
-            <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+            <i class="fa fa-print mr-3"></i> + 7 927 865 97 33</p>
 
         </div>
         <!-- Grid column -->
@@ -212,7 +203,7 @@
         <a class="text-muted icon" href="/" %}">
         <div class="d-inline">©</div>
         <div class="d-inline" id="current_year"></div>
-        <div class="d-inline">КЛАРУМ-ЛЮМИНЕ</div>
+        <div class="d-inline">Автомобильные Диагностические Системы</div>
         </a>
     </div>
     <!-- Copyright -->
