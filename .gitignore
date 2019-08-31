@@ -103,7 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-/static
 *.db
 .idea/
 .DS_Store
