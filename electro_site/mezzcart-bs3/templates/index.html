@@ -2,26 +2,16 @@
 {% load i18n %}
 
 {% block meta_title %}{% trans "Home" %}{% endblock %}
-{% block title %}{% trans "Home" %}{% endblock %}
-
-{% block breadcrumb_menu %}
-<li class="breadcrumb-item active">{% trans "Home" %}</li>
-{% endblock %}
-
+{% load i18n %}
 {% block main %}
 {% blocktrans %}
-<h2>Congratulations!</h2>
-<p>
-    Welcome to your new Theme!
-</p>
-<ul>
-    <li><a href="/admin/">Log in to the admin interface</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/content-architecture.html">Creating custom page types</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#templates">Modifying HTML templates</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#why-isn-t-the-homepage-a-page-object-i-can-edit-via-the-admin">Changing this homepage</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html">Other frequently asked questions</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/configuration.html#default-settings">Full list of settings</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/deployment.html">Deploying to a production server</a></li>
-</ul>
+  <div class="jumbotron p-4 p-md-5 text-white rounded block-background-image">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Автомобильные диагностические системы и технологии</h1>
+      <p class="lead my-3">Мы разрабатываем системы для постоянного мониторинга автомобиля и дорожной ситуации</p>
+        <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Решения для бизнеса...</a></p>
+        <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Решения для индивидуального использования...</a></p>
+    </div>
+  </div>
 {% endblocktrans %}
 {% endblock %}

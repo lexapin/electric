@@ -223,3 +223,14 @@ a.social:hover {
 .dropdown-menubar:hover .dropdown-menucontent {display: block;}
 
 /*.dropdown-menubar:hover .dropbtn {background-color: #3e8e41;}*/
+
+.block-background-image{
+  /* The image used */
+  background-image: url("https://selfdiauto.ru/static/media/uploads/news/slide_problem_1.png");
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80%
+}
